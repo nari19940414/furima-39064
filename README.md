@@ -1,24 +1,59 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| name_id            | string | null: false |
+| name               | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_one  :sails_record
 
-* Configuration
+## items テーブル
 
-* Database creation
+| Column                | Type   | Options     |
+| ------                | ------ | ----------- |
+| product_id            | string | null: false |
+| product_name          | string | null: false |
+| product_price         | string | null: false |
+| product_description   | string | null: false |
+| name_id               | string | null: false , foreign_key: true|
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has_many :shipping_address
+- 
 
-* Services (job queues, cache servers, search engines, etc.)
+## sails_record テーブル
 
-* Deployment instructions
+| Column          | Type       | Options                        |
+| ------          | ---------- | ------------------------------ |
+| sails_id        | string     | null: false                    |
+| name_id         | string     | null: false , foreign_key: true|
+| product_id      | string     | null: false , foreign_key: true|
+| purchase_date   | string     | null: false                    |
 
-* ...
+### Association
+
+- belongs_to :users
+- has_many :shipping_address
+- 
+
+## shipping_address テーブル
+
+| Column            | Type       | Options     　　　　　　　　　　　|
+| -------           | ---------- | ------------　　　　　　　　　　　|
+| product_id        | string     | null: false,foreign_key: true |
+| sails_id          | string     | null: false,foreign_key: true |
+| shipment_id       | string     | null: false 　　　　　　　　　　　|
+| purchased_at      | references | null: false 　　　　　　　　　　　|
+| shipping_address  | references | null: false 　　　　　　　　　　　|
+| shipping_status   | references | null: false 　　　　　　　　　　　|
+### Association
+
+- belongs_to :items
