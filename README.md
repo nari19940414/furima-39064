@@ -31,12 +31,12 @@
 
 ## sails_record テーブル
 
-| Column          | Type       | Options                        |
-| ------          | ---------- | ------------------------------ |
-| sails_id        | string     | null: false                    |
-| name_id         | string     | null: false , foreign_key: true|
-| product_id      | string     | null: false , foreign_key: true|
-| purchase_date   | string     | null: false                    |
+| Column          | Type       | Options                       |
+| ------          | ---------- | ------------------------------|
+| sails_id        | string     | null: false                   |
+| name_id         | string     | null: false, foreign_key: true|
+| product_id      | string     | null: false, foreign_key: true|
+| purchase_date   | string     | null: false                   |
 
 ### Association
 
