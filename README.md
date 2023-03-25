@@ -2,58 +2,71 @@
 
 ## users テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| name_id            | string | null: false |
-| name               | string | null: false |
-| email              | string | null: false |
-| encrypted_password | string | null: false |
+| Column             | Type    | Options     |
+| ------------------ | ------  | ----------- |
+| name               | string  | null: false |
+| email              | string  | null: false,unique:true|
+| encrypted_password | string  | null: false |
+| last_name          | string  | null: false |
+| first_name         | string  | null: false |
+| last_name_kana     | string  | null: false |
+| first_name_kana    | string  | null: false |
+| birthday           | date | null: false |
+
 
 ### Association
 
-- has_many :items
-- has_one  :sails_record
+- has_many  :items
+- has_many  :sails_records
+
 
 ## items テーブル
 
 | Column                | Type   | Options     |
 | ------                | ------ | ----------- |
-| product_id            | string | null: false |
 | product_name          | string | null: false |
-| product_price         | string | null: false |
-| product_description   | string | null: false |
-| name_id               | string | null: false , foreign_key: true|
+| product_description   | text   | null: false |
+| user               | references | null: false,foreign_key: true |
+| product_price         | integer| null: false |
+| category_id         　| integer | null: false|
+| condition_id          | integer | null: false |
+| delivery_pay_id       | integer | null: false |
+| city_id               | integer      | null: false|
+| delivery_span_id      | integer | null: false |
+
 
 ### Association
 
-- has_many :shipping_address
-- 
+- belongs_to :user
+- has_one :sails_record
 
-## sails_record テーブル
 
-| Column          | Type       | Options                        |
-| ------          | ---------- | ------------------------------ |
-| sails_id        | string     | null: false                    |
-| name_id         | string     | null: false , foreign_key: true|
-| product_id      | string     | null: false , foreign_key: true|
-| purchase_date   | string     | null: false                    |
+## sails_records テーブル
+
+| Column          | Type       | Options                       |
+| ------          | ---------- | ------------------------------|
+| user　　　　　    | references　　| foreign_key: true, null: false |
+| item 　　　      | references　　| foreign_key: true, null: false |
 
 ### Association
 
-- belongs_to :users
-- has_many :shipping_address
-- 
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
-## shipping_address テーブル
+
+## addresses テーブル
 
 | Column            | Type       | Options     　　　　　　　　　　　|
 | -------           | ---------- | ------------　　　　　　　　　　　|
-| product_id        | string     | null: false,foreign_key: true |
-| sails_id          | string     | null: false,foreign_key: true |
-| shipment_id       | string     | null: false 　　　　　　　　　　　|
-| purchased_at      | references | null: false 　　　　　　　　　　　|
-| shipping_address  | references | null: false 　　　　　　　　　　　|
-| shipping_status   | references | null: false 　　　　　　　　　　　|
+| postal_code       | string     | null: false 　　　　　　　　　　　|
+| city_id           | integer    | null: false                  |
+| block             | string     | null: false 　　　　　　　　　　　|
+| house number      | string     | null: false 　　　　　　　　　　　|
+| building_name     | string     | 　　　　　　　　　　　　　　　　　　　|
+| phone_number         | string     | null: false 　　　　　　　　　　　|
+| sails_record       | references | null: false,foreign_key: true |
+
 ### Association
 
-- belongs_to :items
+- belongs_to :sails_record
