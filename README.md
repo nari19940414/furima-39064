@@ -63,11 +63,11 @@
 | city_id           | integer    | null: false                  |
 | block             | string     | null: false 　　　　　　　　　　　|
 | house number      | string     | null: false 　　　　　　　　　　　|
-| building_name     | string     | 　　　　　　　|
-| phone_num         | string     | null: false 　　　　　　　　　　　|
+| building_name     | string     | 　　　　　　　　　　　　　　　　　　　|
+| phone_number         | string     | null: false 　　　　　　　　　　　|
 | user_id           | string | null: false , foreign_key: true|
 
 ### Association
 
 - belongs_to :item
-- belongs_to :sails_records
+- belongs_to :sails_record
