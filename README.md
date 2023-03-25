@@ -26,7 +26,7 @@
 | ------                | ------ | ----------- |
 | product_name          | string | null: false |
 | product_description   | text   | null: false |
-| user               | reference | null: false |
+| user               | references | null: false,foreign_key: true |
 | product_price         | integer| null: false |
 | category_id         　| integer | null: false|
 | condition_id          | integer | null: false |
@@ -45,12 +45,12 @@
 
 | Column          | Type       | Options                       |
 | ------          | ---------- | ------------------------------|
-| user　　　　　    | reference 　　| foreign_key: true, null: false |
-| items 　　　      | reference 　　| foreign_key: true, null: false |
+| user　　　　　    | references　　| foreign_key: true, null: false |
+| item 　　　      | references　　| foreign_key: true, null: false |
 
 ### Association
 
-- belongs_to :users
+- belongs_to :user
 - belongs_to :item
 - has_one :address
 
@@ -65,7 +65,7 @@
 | house number      | string     | null: false 　　　　　　　　　　　|
 | building_name     | string     | 　　　　　　　　　　　　　　　　　　　|
 | phone_number         | string     | null: false 　　　　　　　　　　　|
-| user           | string | null: false , foreign_key: true|
+| item           | string | null: false , foreign_key: true|
 
 ### Association
 
