@@ -65,7 +65,7 @@
 | house number      | string     | null: false 　　　　　　　　　　　|
 | building_name     | string     | 　　　　　　　　　　　　　　　　　　　|
 | phone_number         | string     | null: false 　　　　　　　　　　　|
-| product_name          | string | null: false |
+| sails_record          | string | null: false |
 
 ### Association
 
