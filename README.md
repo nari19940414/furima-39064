@@ -5,7 +5,7 @@
 | Column             | Type    | Options     |
 | ------------------ | ------  | ----------- |
 | name               | string  | null: false |
-| email              | string  | null: false|
+| email              | string  | null: false,unique:true|
 | encrypted_password | string  | null: false |
 | last_name          | string  | null: false |
 | first_name         | string  | null: false |
@@ -26,9 +26,9 @@
 | ------                | ------ | ----------- |
 | product_name          | string | null: false |
 | product_description   | text   | null: false |
-| user_id               | reference | null: false , foreign_key: true|
+| user               | reference | null: false |
 | product_price         | integer| null: false |
-| category_id         　| integer | null: false, foreign_key: true |
+| category_id         　| integer | null: false|
 | condition_id          | integer | null: false |
 | delivery_pay_id       | integer | null: false |
 | city_id               | integer      | null: false|
@@ -38,7 +38,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :sails_records
+- has_one :sails_record
 
 
 ## sails_records テーブル
@@ -52,7 +52,7 @@
 
 - belongs_to :users
 - belongs_to :item
-- belongs_to :address
+- has_one :address
 
 
 ## addresses テーブル
@@ -65,9 +65,8 @@
 | house number      | string     | null: false 　　　　　　　　　　　|
 | building_name     | string     | 　　　　　　　　　　　　　　　　　　　|
 | phone_number         | string     | null: false 　　　　　　　　　　　|
-| user_id           | string | null: false , foreign_key: true|
+| user           | string | null: false , foreign_key: true|
 
 ### Association
 
-- belongs_to :item
 - belongs_to :sails_record
