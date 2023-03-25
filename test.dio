@@ -77,22 +77,16 @@
                     <mxGeometry y="352.4" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="74" value="sails_recordテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="60" y="710" width="160" height="146" as="geometry"/>
-                </mxCell>
-                <mxCell id="75" value="購入ID " style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="74">
-                    <mxGeometry y="26" width="160" height="30" as="geometry"/>
+                    <mxGeometry x="60" y="710" width="160" height="86" as="geometry"/>
                 </mxCell>
                 <mxCell id="76" value="ユーザーID" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="74">
-                    <mxGeometry y="56" width="160" height="30" as="geometry"/>
+                    <mxGeometry y="26" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="77" value="商品ID" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="74">
-                    <mxGeometry y="86" width="160" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="78" value="購入日時" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="74">
-                    <mxGeometry y="116" width="160" height="30" as="geometry"/>
+                    <mxGeometry y="56" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="79" value="addressテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=13;" vertex="1" parent="1">
-                    <mxGeometry x="550" y="660" width="160" height="236" as="geometry"/>
+                    <mxGeometry x="550" y="660" width="160" height="276" as="geometry"/>
                 </mxCell>
                 <mxCell id="81" value="郵便番号" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="79">
                     <mxGeometry y="26" width="160" height="30" as="geometry"/>
@@ -103,14 +97,17 @@
                 <mxCell id="80" value="市区町村" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="79">
                     <mxGeometry y="86" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="83" value="建物名" style="whiteSpace=wrap;html=1;align=left;fontSize=13;" vertex="1" parent="79">
+                <mxCell id="133" value="番地" style="whiteSpace=wrap;html=1;align=left;fontSize=13;" vertex="1" parent="79">
                     <mxGeometry y="116" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="88" value="電話番号" style="whiteSpace=wrap;html=1;align=left;fontSize=13;" vertex="1" parent="79">
+                <mxCell id="83" value="建物名" style="whiteSpace=wrap;html=1;align=left;fontSize=13;" vertex="1" parent="79">
                     <mxGeometry y="156" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="89" value="ユーザー名" style="whiteSpace=wrap;html=1;align=left;fontSize=13;" vertex="1" parent="79">
+                <mxCell id="88" value="電話番号" style="whiteSpace=wrap;html=1;align=left;fontSize=13;" vertex="1" parent="79">
                     <mxGeometry y="196" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="89" value="ユーザー名" style="whiteSpace=wrap;html=1;align=left;fontSize=13;" vertex="1" parent="79">
+                    <mxGeometry y="236" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="92" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;exitX=1.017;exitY=-0.017;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.012;entryY=0.817;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="62" target="71">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
@@ -118,17 +115,11 @@
                         <mxPoint x="510" y="210" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="100" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="75" target="82">
+                <mxCell id="100" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="82">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
-                        <mxPoint x="360" y="410" as="sourcePoint"/>
+                        <mxPoint x="220" y="751" as="sourcePoint"/>
                         <mxPoint x="460" y="310" as="targetPoint"/>
                     </mxGeometry>
-                </mxCell>
-                <mxCell id="103" value="日" style="whiteSpace=wrap;html=1;align=left;fontSize=13;" vertex="1" parent="1">
-                    <mxGeometry x="60" y="480" width="180" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="104" value="月" style="whiteSpace=wrap;html=1;align=left;fontSize=13;" vertex="1" parent="1">
-                    <mxGeometry x="60" y="440" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="105" value="西暦" style="whiteSpace=wrap;html=1;align=left;fontSize=13;" vertex="1" parent="1">
                     <mxGeometry x="60" y="400" width="180" height="40" as="geometry"/>
@@ -151,7 +142,7 @@
                         <mxPoint x="380" y="430" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="132" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;exitX=1.017;exitY=-0.017;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="74">
+                <mxCell id="132" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="105" target="74">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
                         <mxPoint x="137.99999999999994" y="521" as="sourcePoint"/>
                         <mxPoint x="413.0199999999999" y="648.4200000000001" as="targetPoint"/>
