@@ -4,6 +4,14 @@ RSpec.describe User, type: :model do
     @user = FactoryBot.build(:user)
   end
   describe "ユーザー新規登録" do
+    
+    context '新規登録できるとき' do
+      it 'nicknameとemail、passwordとpassword_confirmation、last_nameとfirst_name、last_name_kanaとfirst_name_kana、birth_dateが存在すれば登録できる' do
+        expect(@user).to be_valid
+      end
+    end
+    
+    context '新規登録できないとき' do
     it "nicknameが空だと登録できない" do
       @user.nickname = ''
       @user.valid?
@@ -75,7 +83,7 @@ RSpec.describe User, type: :model do
     it '姓（全角）に半角文字が含まれていると登録できない' do
       @user.last_name = 'abcde'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Last name is invalid")
+      expect(@user.errors.full_messages).to include("Last name is invalid. Input full-width katakana characters")
     end
     
     it '名（全角）が空だと登録できない' do
@@ -87,7 +95,7 @@ RSpec.describe User, type: :model do
     it '名（全角）に半角文字が含まれていると登録できない' do
       @user.first_name = 'abcde'
       @user.valid?
-      expect(@user.errors.full_messages).to include("First name is invalid")
+      expect(@user.errors.full_messages).to include("First name is invalid. Input full-width katakana characters")
     end
     
      it '姓（カナ）が空だと登録できない' do
@@ -121,5 +129,6 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Birth date can't be blank")
     end 
+   end
   end
 end
