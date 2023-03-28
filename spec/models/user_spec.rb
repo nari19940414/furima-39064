@@ -63,9 +63,11 @@ RSpec.describe User, type: :model do
     
 
     it "メールアドレスが重複すると登録できない" do
-      @user.email ='@user.email'
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Email is invalid")
+      @user.save
+      another_user = FactoryBot.build(:user)
+      another_user.email = @user.email
+      another_user.valid?
+      expect(another_user.errors.full_messages).to include('Email has already been taken')
     end
 
     it 'メールアドレスは、@を含まないと登録できない' do
@@ -118,7 +120,7 @@ RSpec.describe User, type: :model do
     end
 
     it '名（カナ）にカタカナ以外の文字（平仮名・漢字・英数字・記号）が含まれていると登録できない' do
-      @user.first_name_kana = ''
+      @user.first_name_kana = 'あいうえお'
       @user.valid?
       expect(@user.errors.full_messages).to include("First name kana is invalid. Input full-width katakana characters.")
 
