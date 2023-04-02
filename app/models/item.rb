@@ -1,5 +1,16 @@
 class Item < ApplicationRecord
-  validates :product_name, :image, :description, presence: true
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  validates :product_name, :image, :product_description, presence: true
 
+  belongs_to :user
+  belongs_to :category
+  belongs_to :condition
+  belongs_to :delivery_pay
+  belongs_to :city
+  belongs_to :delivery_span
   has_one_attached :image
+
+  validates :product_name, :product_description, :image, presence: true
+  validates :category_id, :condition_id, :delivery_pay_id, :city_id, :delivery_span_id, numericality: { other_than: 1 , message: "can't be blank" } 
+  
 end
