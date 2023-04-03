@@ -27,4 +27,5 @@ class ItemsController < ApplicationController
          :condition_id , :delivery_pay_id, :city_id, :delivery_span_id).merge(user_id: current_user.id)
     end
     
+    
 end
