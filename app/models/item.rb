@@ -1,6 +1,5 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  validates :product_name, :image, :product_description, presence: true
 
   belongs_to :user
   belongs_to :category
@@ -11,6 +10,8 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   validates :product_name, :product_description, :image, presence: true
+  validates :user, presence: true
   validates :category_id, :condition_id, :delivery_pay_id, :city_id, :delivery_span_id, numericality: { other_than: 1 , message: "can't be blank" } 
-  
+  validates :product_price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: 'is out of setting range' } do
+  end 
 end
