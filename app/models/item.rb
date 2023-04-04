@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   belongs_to :delivery_span
   has_one_attached :image
   belongs_to :user
+  has_one :order
 
   validates :product_name, :product_description, :image, presence: true
   validates :category_id, :condition_id, :delivery_pay_id, :city_id, :delivery_span_id, numericality: { other_than: 1 , message: "can't be blank" } 

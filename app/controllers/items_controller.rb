@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]#[, :edit, :update, :destroy]後から追加する。
+  before_action :authenticate_user!, only: [:new, :create, :edit]#[, :update, :destroy]後から追加する。
     def index
-      #@items = Item.all
-      #@items = Item.order("created_at DESC")  後から追加するもの。
+      @items = Item.all
+      @items = Item.order("created_at DESC")
     end
 
     def new
@@ -17,7 +17,10 @@ class ItemsController < ApplicationController
       render :new
      end
     end
-
+    
+    def edit
+      
+    end
     
   
   
