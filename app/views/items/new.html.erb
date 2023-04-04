@@ -70,7 +70,7 @@
           配送料の負担
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:delivery_pay_id, Delivery_pay.all, :id, :name, {}, {class:"select-box", id: "item-shipping-fee-status"}) %>
+        <%= f.collection_select(:delivery_pay_id, DeliveryPay.all, :id, :name, {}, {class:"select-box", id: "item-shipping-fee-status"}) %>
         <div class="weight-bold-text">
           発送元の地域
           <span class="indispensable">必須</span>
@@ -80,7 +80,7 @@
           発送までの日数
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:delivery_span_id, Delivery_span.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
+        <%= f.collection_select(:delivery_span_id, DeliverySpan.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
       </div>
     </div>
     <%# /配送について %>
