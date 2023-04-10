@@ -9,8 +9,7 @@ class Order < ApplicationRecord
   validates :prefecture_id, presence: true
   validates :city, presence: true
   validates :house_number, presence: true
-  validates :phone_number, presence: true
-  validates :phone_number, presence: true, numericality: { only_integer: true }, length: { minimum: 10, maximum: 11 }
+
   validates :phone_number, presence: true, numericality: { only_integer: true, message: 'Input only number' }, length: { minimum: 10, maximum: 11 }
   validates :user, presence: true
   validates :item, presence: true
