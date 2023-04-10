@@ -1,11 +1,12 @@
 FactoryBot.define do
   factory :order do
     postal_code { '123-4567' }
-    prefecture { 3 }
+    prefecture_id { 3 }
     city { 'あああ市' }
     house_number { '1-1-1' }
     building_name { 'あああアパート' }
     phone_number { '09011112222' }
+    price {3000}
     token { 'tok_abcdefghijk00000000000000000' }
     
   end

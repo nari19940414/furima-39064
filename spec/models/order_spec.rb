@@ -4,9 +4,9 @@ RSpec.describe Order, type: :model do
   #pending "add some examples to (or delete) #{__FILE__}"
   describe '購入情報の保存' do
     before do
-      item = FactoryBot.create(:item)
       user = FactoryBot.create(:user)
-      @order = FactoryBot.build(:order, user_id: user.id, item_id: item.id)
+      item = FactoryBot.create(:item, user_id: user.id)
+      @order = FactoryBot.build(:order, user_id: user.id, item_id: item.id, prefecture_id: 1)
       sleep 0.1
     end
 
@@ -37,7 +37,7 @@ RSpec.describe Order, type: :model do
         expect(@order.errors.full_messages).to include('Postal code is invalid. Enter it as follows(e.g. 123-4567)')
       end
       it '都道府県を選択していないと保存できないこと' do
-        @order.prefecture = nil
+        @order.prefecture_id = nil
         @order.valid?
         expect(@order.errors.full_messages).to include("Prefecture can't be blank")
       end
