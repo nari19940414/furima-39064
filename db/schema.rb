@@ -70,8 +70,7 @@ ActiveRecord::Schema.define(version: 2023_04_10_013815) do
     t.string "house_number", null: false
     t.string "building_name"
     t.string "phone_number", null: false
-    t.integer "product_price", null: false
-    t.string "token", null: false
+    t.integer "product_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_orders_on_item_id"

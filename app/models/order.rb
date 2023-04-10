@@ -10,7 +10,11 @@ class Order < ApplicationRecord
   validates :city, presence: true
   validates :house_number, presence: true
   validates :phone_number, presence: true
-  validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'は10桁以上11桁以内の半角数値で入力してください' }
+  validates :phone_number, presence: true, numericality: { only_integer: true }, length: { minimum: 10, maximum: 11 }
+  validates :phone_number, presence: true, numericality: { only_integer: true, message: 'Input only number' }, length: { minimum: 10, maximum: 11 }
+
+
+
   validates :user, presence: true
   validates :item, presence: true
   validates :token, presence: true
