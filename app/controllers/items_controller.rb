@@ -56,9 +56,9 @@ class ItemsController < ApplicationController
     end
     def require_permission
       @item = Item.find(params[:id])
-       if @item.order.nil?
+       if @item.order.present?
          redirect_to root_path
-       else current_user != @item.user
+       elsif current_user != @item.user
          redirect_to root_path
        end
     end

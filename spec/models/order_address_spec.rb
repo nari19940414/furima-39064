@@ -37,7 +37,7 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include('Postal code is invalid. Enter it as follows (e.g. 123-4567)')
       end
       it '都道府県を選択していないと保存できないこと' do
-        @order_address.prefecture_id = nil
+        @order_address.prefecture_id = 1
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Prefecture can't be blank")
       end
@@ -85,6 +85,8 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.invalid?
         expect(@order_address.errors.full_messages).to include("Item can't be blank")
       end
+
+      
     end
   end
 end
