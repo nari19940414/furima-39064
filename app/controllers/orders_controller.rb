@@ -7,10 +7,6 @@ class OrdersController < ApplicationController
     redirect_to root_path if current_user == @item.user || !@item.order.nil?
   end
 
-  def new
-    @order = Order.new
-  end
-
   def create
       
     @order = Order.new(order_params)
