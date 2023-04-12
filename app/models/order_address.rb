@@ -7,11 +7,10 @@ class OrderAddress
       
     validates :token, :city, :house_number, :user_id, :item_id
     validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/, message: "is invalid. Enter it as follows (e.g. 123-4567)" }
-
     validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank"}
-    validates :phone_number, numericality: { only_integer: true }, length: { minimum: 10, maximum: 11 }
-    validates :phone_number, format: { with: /\A[0-9]+\z/, message: 'は半角数値のみ入力してください。' }
     end
+    validates :phone_number, numericality: { only_integer: true }, length: { minimum: 10, maximum: 11 }
+    validates :phone_number, presence: true, format: { with: /\A[0-9]+\z/, message: 'は半角数値のみ入力してください。' }
    
   
     def save
