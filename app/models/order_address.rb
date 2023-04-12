@@ -6,8 +6,6 @@ class OrderAddress
     with_options presence: true do
       
     validates :token, :city, :house_number, :user_id, :item_id
-    #validates :postal_code, presence: true, format: { with: /\A\d{7}\z/, message: "は7桁の半角数字で入力してください" }
-    #validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/, message: "is invalid. Enter it as follows (e.g. 123-4567)" }
 
     validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank"}
